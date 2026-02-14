@@ -1,0 +1,63 @@
+Proceso SegundoMinMax
+
+    Definir arr Como Entero
+    Dimension arr[6]
+
+    arr[1] <- 17
+    arr[2] <- 0
+    arr[3] <- 3
+    arr[4] <- 1
+    arr[5] <- 4
+    arr[6] <- 8
+
+    Definir mayor1, mayor2, menor1, menor2, actual, i Como Entero
+
+    Si arr[1] > arr[2] Entonces
+        mayor1 <- arr[1]
+        mayor2 <- arr[2]
+        menor1 <- arr[2]
+        menor2 <- arr[1]
+    SiNo
+        mayor1 <- arr[2]
+        mayor2 <- arr[1]
+        menor1 <- arr[1]
+        menor2 <- arr[2]
+    FinSi
+
+    i <- 3
+
+    Mientras i <= 6 Hacer
+
+        actual <- arr[i]
+
+        Si actual > mayor1 Entonces
+            mayor2 <- mayor1
+            mayor1 <- actual
+        SiNo
+            Si actual > mayor2 Y actual <> mayor1 Entonces
+                mayor2 <- actual
+            FinSi
+        FinSi
+
+        Si actual < menor1 Entonces
+            menor2 <- menor1
+            menor1 <- actual
+        SiNo
+            Si actual < menor2 Y actual <> menor1 Entonces
+                menor2 <- actual
+            FinSi
+        FinSi
+
+        i <- i + 1
+
+    FinMientras
+
+    Escribir "Segundo valor más alto: ", mayor2
+    Escribir "Segundo valor más bajo: ", menor2
+
+FinProceso
+
+Explicación breve
+El algoritmo funciona porque primero ordena los números de menor a mayor.
+Al quedar ordenados, el segundo elemento es el segundo menor y el penúltimo es el segundo mayor, por eso el resultado es correcto.
+
